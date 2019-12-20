@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Balloon Event</title>
+	</head>
+	<body>
+		<p id="balloon">🎈</p>
+		<script>
+			const balloonSize = "30";
+			const balloon = document.getElementById("balloon");
+
+			balloon.style.fontSize = `${balloonSize}px`;
+
+			const getCurrentFontSize = () => {
+				return window.getComputedStyle(balloon).fontSize.slice(0, -2);
+			};
+
+			const keyCheck = event => {
+				switch (event.key) {
+					case "ArrowUp":
+						event.preventDefault();
+						if (Number(getCurrentFontSize()) >= 200) {
+							balloon.textContent = "💥";
+							document.removeEventListener("keyup", keyCheck);
+						} else {
+							// Increase by 10%
+							balloon.style.fontSize = `${getCurrentFontSize() *
+								1.1}px`;
+						}
+						break;
+					case "ArrowDown":
+						event.preventDefault();
+						// Decrease by 10%
+						balloon.style.fontSize = `${getCurrentFontSize() *
+							0.9}px`;
+						break;
+					default:
+						return;
+				}
+			};
+
+			document.addEventListener("keyup", keyCheck);
+		</script>
+	</body>
+</html>
