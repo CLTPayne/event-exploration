@@ -16,9 +16,28 @@ Getting started:
 -   Git clone this repo
 -   Change directory into the cloned project
 -   Use `http-server .` to spin up a local server and visit `http://127.0.0.1:8080`
+-   Select `balloon.html`
 -   Press the up or down arrow keys, lots of times!
 
 Behaviour:
 
 -   The page is listening for up or down arrow key presses.
 -   Default scroll behaviour of the up and down arrow keys is overridden with custom behaviour.
+
+### Task 2
+
+The mouse trail exercies from [Eloquent Javascript](https://eloquentjavascript.net/15_event.html#i_NOgRH0Y9st)
+
+Getting started:
+
+-   Git clone this repo
+-   Change directory into the cloned project
+-   Use `http-server .` to spin up a local server and visit `http://127.0.0.1:8080`
+-   Select `mouseTrail.html`
+-   Move the mouse anywhere!
+
+Behavour:
+
+-   Page is listening for a mouse movement event
+-   Multicolored trail via looping through an array of colors
+-   Could very easily be a draw function if didn't limit the number of dot elements created.
