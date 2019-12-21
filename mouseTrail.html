@@ -13,26 +13,16 @@
 		</style>
 	</head>
 	<body>
-		<div class="dot"></div>
-		<div class="dot"></div>
-		<div class="dot"></div>
-		<div class="dot"></div>
-		<div class="dot"></div>
-		<div class="dot"></div>
-		<div class="dot"></div>
-		<div class="dot"></div>
-		<div class="dot"></div>
-		<div class="dot"></div>
-		<div class="dot"></div>
-		<div class="dot"></div>
-		<div class="dot"></div>
-		<div class="dot"></div>
-		<div class="dot"></div>
 		<script>
 			let counter = 0;
-
-			const renderDot = (xPosition, yPosition) => {
-				const dots = document.getElementsByClassName("dot");
+			const dots = [];
+			for (let i = 0; i <= 10; i++) {
+				const dot = document.createElement("div");
+				dot.classList.add("trail");
+				dots.push(dot);
+				document.body.appendChild(dot);
+			}
+			const renderDot = (currentDot, xPosition, yPosition) => {
 				const colors = [
 					"lemonchiffon",
 					"powderblue",
@@ -41,19 +31,15 @@
 					"bisque",
 					"lightgray"
 				];
-
-				for (const element of dots) {
-					element.classList.add("trail");
-					element.style.backgroundColor =
-						colors[counter % colors.length];
-					element.style.left = `${xPosition - 15}px`;
-					element.style.top = `${yPosition - 15}px`;
-					document.body.appendChild(element);
-				}
+				currentDot.style.backgroundColor =
+					colors[counter % colors.length];
+				currentDot.style.left = `${xPosition - 15}px`;
+				currentDot.style.top = `${yPosition - 15}px`;
 			};
 			const moved = ({ clientX, clientY }) => {
 				counter += 1;
-				renderDot(clientX, clientY);
+				const currentDot = dots[counter % dots.length];
+				renderDot(currentDot, clientX, clientY);
 			};
 			window.addEventListener("mousemove", moved);
 		</script>
