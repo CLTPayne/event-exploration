@@ -4,8 +4,44 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Mouse Trail</title>
+		<style>
+			.trail {
+				position: absolute;
+				padding: 1rem;
+				border-radius: 1rem;
+			}
+		</style>
 	</head>
 	<body>
-		<script></script>
+		<div class="dot"></div>
+		<script>
+			let counter = 0;
+
+			const renderDot = (xPosition, yPosition) => {
+				const dots = document.getElementsByClassName("dot");
+				const colors = [
+					"lemonchiffon",
+					"powderblue",
+					"pink",
+					"plum",
+					"bisque",
+					"lightgray"
+				];
+
+				for (const element of dots) {
+					element.classList.add("trail");
+					element.style.backgroundColor =
+						colors[counter % colors.length];
+					element.style.left = `${xPosition}px`;
+					element.style.top = `${yPosition}px`;
+					document.body.appendChild(element);
+				}
+			};
+			const moved = ({ clientX, clientY }) => {
+				counter += 1;
+				renderDot(clientX, clientY);
+			};
+			window.addEventListener("mousemove", moved);
+		</script>
 	</body>
 </html>
