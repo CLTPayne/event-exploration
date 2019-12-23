@@ -1,0 +1,22 @@
+{
+  "name": "audio-events",
+  "version": "1.0.0",
+  "description": "Exploring listening for and handling events in JavaScript without the help of a library like React.",
+  "main": "audioElement.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CLTPayne/event-exploration.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CLTPayne/event-exploration/issues"
+  },
+  "homepage": "https://github.com/CLTPayne/event-exploration#readme",
+  "dependencies": {
+    "mitt": "^1.2.0"
+  }
+}
