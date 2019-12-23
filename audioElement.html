@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Audio Element</title>
+	</head>
+	<body>
+		<script src="https://unpkg.com/mitt/dist/mitt.umd.js"></script>
+		<script type="module">
+			import {
+				generateAudioElement,
+				loaded,
+				play,
+				progress
+			} from "./audioElement.js";
+
+			generateAudioElement(
+				"https://media.acast.com/ft-politics/anotherqueen-sspeech-anotherbrexitvote-pluslabourleadershiplatest/media.mp3",
+				"ck4ivoe5v000h3z6ebdl94huz",
+				"7ddded94-3115-46c1-9afa-68ddf57e8401",
+				"podcast"
+			);
+
+			// The audio element listens to these
+			setTimeout(() => {
+				loaded();
+			}, 1000);
+
+			setTimeout(() => {
+				play();
+			}, 1500);
+
+			setTimeout(() => {
+				progress(200);
+			}, 2000);
+
+			setTimeout(() => {
+				progress(300);
+			}, 3000);
+		</script>
+	</body>
+</html>
