@@ -36,8 +36,28 @@ Getting started:
 -   Select `mouseTrail.html`
 -   Move the mouse anywhere!
 
-Behavour:
+Behaviour:
 
 -   Page is listening for a mouse movement event
 -   Multicolored trail via looping through an array of colors
 -   Could very easily be a draw function if didn't limit the number of dot elements created.
+
+### Task 3
+
+Build a mock HTML 5 audio element to replace substitute in APIs expecting an audio element.
+
+HTML 5 Audio elements emit a series of events to let listeners know that audio is loaded, playing, progressing, paused etc.
+
+Decided to use lightweight event library [mitt](https://github.com/developit/mitt) to making event handling and emitting easier.
+
+Getting started:
+
+-   Git clone this repo
+-   Change directory into the cloned project
+-   Use `http-server .` to spin up a local server and visit `http://127.0.0.1:8080`
+-   Select `audioElement.html`
+-   Open the browser console and see the event handler logs.
+
+Example use case:
+
+1. Tracking logic that expects an HTML 5 object in the client but in an app audio is handled by native layer and messages are sent to the web app over a bridge.
