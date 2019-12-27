@@ -61,3 +61,10 @@ Getting started:
 Example use case:
 
 1. Tracking logic that expects an HTML 5 object in the client but in an app audio is handled by native layer and messages are sent to the web app over a bridge.
+
+Questions:
+
+1.  Why and how should event listeners be removed?
+
+    -   If you remove a node / element from the screen it can't be garbage collected if it still has an event listener attached to it. Otherwise you're continuting to increase the use of memory.
+    -   Similarly it's important not to use anonymous functions as the event listeners if you need to be able to remove a listener. The remove function compares object references in order to understand if two functions (and thus the two listeners are matching). Two anonymous functions with matching logic have different object references.
